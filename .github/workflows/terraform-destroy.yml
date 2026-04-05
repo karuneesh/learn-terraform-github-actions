@@ -1,6 +1,6 @@
-name: 'Terraform Destroy'
-on:
-  workflow_dispatch:  # Manual trigger
+# filepath: .github/workflows/terraform-destroy.yml
+name: Terraform Destroy
+on: workflow_dispatch
 jobs:
   destroy:
     runs-on: ubuntu-latest
@@ -10,7 +10,7 @@ jobs:
         with:
           workspace: learn-terraform-github-actions
           plan_only: false
-          destroy: true  # Enable destroy mode
+          destroy: true  # Must be set to true
         env:
           TF_CLOUD_ORGANIZATION: karuneesh
           TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
